@@ -6,9 +6,14 @@ import Image from "next/image"
 import Link from "next/link"
 import logo from "@/assets/images/logo-white.png"
 import profileDefault from "@/assets/images/profile.png"
-// import { FaGoogle } from "react-icons/fa"
+import { FaGoogle } from "react-icons/fa"
 // import { signIn, signOut, useSession, getProviders } from "next-auth/react"
 // import UnreadMessageCount from "./UnreadMessageCount"
+
+const NavLinks = [
+	{ href: "/", label: "Home" },
+	{ href: "/products", label: "Products" },
+]
 
 const NavBar = () => {
 	// const { data: session } = useSession()
@@ -17,6 +22,7 @@ const NavBar = () => {
 
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 	const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
+	const [isLoggedIn, setIsLoggedIn] = useState(true)
 	const [providers, setProviders] = useState(null)
 
 	const pathname = usePathname()
@@ -34,8 +40,8 @@ const NavBar = () => {
 		<nav className='bg-faded border-b border-faded'>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
+					{/* <!-- Mobile menu button--> */}
 					<div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
-						{/* <!-- Mobile menu button--> */}
 						<button
 							type='button'
 							id='mobile-dropdown-button'
@@ -72,208 +78,196 @@ const NavBar = () => {
 								CreativePulse
 							</span>
 						</Link>
+
 						{/* <!-- Desktop Menu Hidden below md screens --> */}
 						<div className='hidden md:ml-6 md:block'>
 							<div className='flex space-x-2'>
-								<Link
-									href='/'
-									className={`${
-										pathname === "/" ? "bg-primary" : ""
-									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
-								>
-									Home
-								</Link>
-								<Link
-									href='/products'
-									className={`${
-										pathname === "/products" ? "bg-primary" : ""
-									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
-								>
-									Products
-								</Link>
-								{/* {session && ( */}
-								<Link
-									href='/products/add'
-									className={`${
-										pathname === "/products/add" ? "bg-primary" : ""
-									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
-								>
-									Add Product
-								</Link>
-								{/* )} */}
+								{NavLinks.map((link, index) => (
+									<Link
+										key={`navlink-${index}`}
+										href={link.href}
+										className={`${
+											pathname === link.href ? "bg-primary" : ""
+										} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+									>
+										{link.label}
+									</Link>
+								))}
+								{isLoggedIn && (
+									<Link
+										href='/products/add'
+										className={`${
+											pathname === "/products/add" ? "bg-primary" : ""
+										} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+									>
+										Add Product
+									</Link>
+								)}
 							</div>
 						</div>
 					</div>
 
 					{/* <!-- Right Side Menu (Logged Out) --> */}
-					{/* {!session && ( */}
-					<div className='hidden md:block md:ml-6'>
-						<div className='flex items-center'>
-							{
-								// providers &&
-								// Object.values(providers).map((provider, index) => (
-								<button
-									// onClick={() => signIn(provider.id)}
-									// key={index}
-									className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
-								>
-									{/* <FaGoogle className='text-secondary mr-2' /> */}
-									<span>Login or Register</span>
-								</button>
-								// ))
-							}
+					{!isLoggedIn && (
+						<div className='hidden md:block md:ml-6'>
+							<div className='flex items-center'>
+								{
+									// providers &&
+									// Object.values(providers).map((provider, index) => (
+									<button
+										// onClick={() => signIn(provider.id)}
+										// key={index}
+										className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
+									>
+										<FaGoogle className='text-secondary mr-2' />
+										<span>Login or Register</span>
+									</button>
+								}
+							</div>
 						</div>
-					</div>
-					{/* )} */}
+					)}
 
 					{/* <!-- Right Side Menu (Logged In) --> */}
-					{/* {session && ( */}
-					<div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
-						<Link href='/messages' className='relative group'>
-							<button
-								type='button'
-								className='relative rounded-full bg-faded p-1 text-faded hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
-							>
-								<span className='absolute -inset-1.5'></span>
-								<span className='sr-only'>View notifications</span>
-								<svg
-									className='h-6 w-6'
-									fill='none'
-									viewBox='0 0 24 24'
-									strokeWidth='1.5'
-									stroke='currentColor'
-									aria-hidden='true'
-								>
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'
-									/>
-								</svg>
-							</button>
-							{/* <UnreadMessageCount session={session} /> */}
-						</Link>
-						{/* <!-- Profile dropdown button --> */}
-						<div className='relative ml-3'>
-							<div>
+					{isLoggedIn && (
+						<div className='absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0'>
+							<Link href='/messages' className='relative group'>
 								<button
 									type='button'
-									className='relative flex rounded-full bg-faded text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
-									id='user-menu-button'
-									aria-expanded={isProfileMenuOpen}
-									aria-haspopup='true'
-									onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+									className='relative rounded-full bg-faded p-1 text-faded hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
 								>
 									<span className='absolute -inset-1.5'></span>
-									<span className='sr-only'>Open user menu</span>
-									<Image
-										className='h-8 w-8 rounded-full'
-										src={profileImage || profileDefault}
-										alt=''
-										width={40}
-										height={40}
-									/>
+									<span className='sr-only'>View notifications</span>
+									<svg
+										className='h-6 w-6'
+										fill='none'
+										viewBox='0 0 24 24'
+										strokeWidth='1.5'
+										stroke='currentColor'
+										aria-hidden='true'
+									>
+										<path
+											strokeLinecap='round'
+											strokeLinejoin='round'
+											d='M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0'
+										/>
+									</svg>
 								</button>
-							</div>
-
-							{/* <!-- Profile dropdown --> */}
-							{isProfileMenuOpen && (
-								<div
-									id='user-menu'
-									className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-secondary py-1 shadow-lg ring-1 ring-primary ring-opacity-5 focus:outline-none'
-									role='menu'
-									aria-orientation='vertical'
-									aria-labelledby='user-menu-button'
-									tabIndex={-1}
-								>
-									<Link
-										href='/profile'
-										className='block px-4 py-2 text-sm text-faded'
-										role='menuitem'
-										tabIndex={-1}
-										id='user-menu-item-0'
-										onClick={() => {
-											setIsProfileMenuOpen(false)
-										}}
-									>
-										Your Profile
-									</Link>
-									<Link
-										href='/properties/saved'
-										className='block px-4 py-2 text-sm text-faded'
-										role='menuitem'
-										tabIndex={-1}
-										id='user-menu-item-2'
-										onClick={() => {
-											setIsProfileMenuOpen(false)
-										}}
-									>
-										Saved Properties
-									</Link>
+								{/* <UnreadMessageCount session={session} /> */}
+							</Link>
+							{/* <!-- Profile dropdown button --> */}
+							<div className='relative ml-3'>
+								<div>
 									<button
-										onClick={() => {
-											setIsProfileMenuOpen(false)
-											// signOut()
-										}}
-										className='block px-4 py-2 text-sm text-faded'
-										role='menuitem'
-										tabIndex={-1}
-										id='user-menu-item-2'
+										type='button'
+										className='relative flex rounded-full bg-faded text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
+										id='user-menu-button'
+										aria-expanded={isProfileMenuOpen}
+										aria-haspopup='true'
+										onClick={() => setIsProfileMenuOpen((prev) => !prev)}
 									>
-										Sign Out
+										<span className='absolute -inset-1.5'></span>
+										<span className='sr-only'>Open user menu</span>
+										<Image
+											className='h-8 w-8 rounded-full'
+											src={profileImage || profileDefault}
+											alt=''
+											width={40}
+											height={40}
+										/>
 									</button>
 								</div>
-							)}
+
+								{/* <!-- Profile dropdown --> */}
+								{isProfileMenuOpen && (
+									<div
+										id='user-menu'
+										className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-secondary py-1 shadow-lg ring-1 ring-primary ring-opacity-5 focus:outline-none'
+										role='menu'
+										aria-orientation='vertical'
+										aria-labelledby='user-menu-button'
+										tabIndex={-1}
+									>
+										<Link
+											href='/profile'
+											className='block px-4 py-2 text-sm text-primary'
+											role='menuitem'
+											tabIndex={-1}
+											id='user-menu-item-0'
+											onClick={() => {
+												setIsProfileMenuOpen(false)
+											}}
+										>
+											Your Profile
+										</Link>
+										<Link
+											href='/products/saved'
+											className='block px-4 py-2 text-sm text-primary'
+											role='menuitem'
+											tabIndex={-1}
+											id='user-menu-item-2'
+											onClick={() => {
+												setIsProfileMenuOpen(false)
+											}}
+										>
+											Saved products
+										</Link>
+										<button
+											onClick={() => {
+												setIsProfileMenuOpen(false)
+												// signOut()
+											}}
+											className='block px-4 py-2 text-sm text-primary'
+											role='menuitem'
+											tabIndex={-1}
+											id='user-menu-item-2'
+										>
+											Sign Out
+										</button>
+									</div>
+								)}
+							</div>
 						</div>
-					</div>
-					{/* )} */}
+					)}
 				</div>
 			</div>
 
 			{/* <!-- Mobile menu, show/hide based on menu state. --> */}
 			{isMobileMenuOpen && (
 				<div id='mobile-menu'>
-					<div className='space-y-1 px-2 pb-3 pt-2'>
-						<Link
-							href='/'
-							className={`${
-								pathname === "/" ? "bg-primary" : ""
-							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
-						>
-							Home
-						</Link>
-						<Link
-							href='/properties'
-							className={`${
-								pathname === "/properties" ? "bg-primary" : ""
-							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
-						>
-							Properties
-						</Link>
-						{/* {session && ( */}
-						<Link
-							href='/properties/add'
-							className={`${
-								pathname === "/properties/add" ? "bg-primary" : ""
-							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
-						>
-							Add Property
-						</Link>
-						{/* )} */}
-
-						{
-							// !session &&
-							providers &&
-								Object.values(providers).map((provider, index) => (
-									<button
-										// onClick={() => signIn(provider.id)}
-										key={index}
-										className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
-									>
-										<span>Login or Register</span>
-									</button>
-								))
-						}
+					<div className='flex flex-col gap-2'>
+						{NavLinks.map((link, index) => (
+							<Link
+								key={`navlink-mobile-${index}`}
+								href={link.href}
+								className={`${
+									pathname === link.href ? "bg-primary" : ""
+								} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+							>
+								{link.label}
+							</Link>
+						))}
+						{isLoggedIn && (
+							<Link
+								href='/products/add'
+								className={`${
+									pathname === "/products/add" ? "bg-primary" : ""
+								} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+							>
+								Add Product
+							</Link>
+						)}
+						{!isLoggedIn && (
+							// providers &&
+							// 	Object.values(providers).map((provider, index) => (
+							<button
+								// onClick={() => signIn(provider.id)}
+								// key={index}
+								className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
+							>
+								<FaGoogle className='text-secondary mr-2' />
+								<span>Login or Register</span>
+							</button>
+						)}
 					</div>
 				</div>
 			)}
