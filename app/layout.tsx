@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
-import { RootLayout } from "@/components"
+import { NavBar, RootLayout } from "@/components"
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -22,7 +22,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<body
 				className={`${inter.className} relative w-screen h-screen custom-min-h-screen overflow-x-clip`}
 			>
-				{children}
+				<NavBar />
+				<main>{children}</main>
 			</body>
 		</RootLayout>
 	)

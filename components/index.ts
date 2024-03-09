@@ -1,3 +1,4 @@
+import NavBar from "./navBar"
 import RootLayout from "./rootLayout"
 
-export { RootLayout }
+export { NavBar, RootLayout }
