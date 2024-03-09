@@ -3,6 +3,7 @@ import Hero from "./hero"
 import HomeProducts from "./homeProducts"
 import InfoBox from "./infoBox"
 import InfoBoxes from "./infoBoxes"
+import Loader from "./Loader"
 import NavBar from "./navBar"
 import ProductCard from "./productCard"
 import Products from "./products"
@@ -15,6 +16,7 @@ export {
 	HomeProducts,
 	InfoBox,
 	InfoBoxes,
+	Loader,
 	NavBar,
 	ProductCard,
 	Products,
