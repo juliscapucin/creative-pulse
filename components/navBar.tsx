@@ -31,7 +31,7 @@ const NavBar = () => {
 	// }, [])
 
 	return (
-		<nav className='bg-blue-700 border-b border-blue-500'>
+		<nav className='bg-faded border-b border-faded'>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
 					<div className='absolute inset-y-0 left-0 flex items-center md:hidden'>
@@ -39,7 +39,7 @@ const NavBar = () => {
 						<button
 							type='button'
 							id='mobile-dropdown-button'
-							className='relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
+							className='relative inline-flex items-center justify-center rounded-md p-2 text-secondary hover:bg-faded hover:text-secondary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-secondary'
 							aria-controls='mobile-menu'
 							aria-expanded={isMobileMenuOpen}
 							onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -66,9 +66,9 @@ const NavBar = () => {
 					<div className='flex flex-1 items-center justify-center md:items-stretch md:justify-start'>
 						{/* <!-- Logo --> */}
 						<Link className='flex flex-shrink-0 items-center' href='/'>
-							<Image className='h-10 w-auto' src={logo} alt='PropertyPulse' />
+							<Image className='h-10 w-auto' src={logo} alt='CreativePulse' />
 
-							<span className='hidden md:block text-white text-2xl font-bold ml-2'>
+							<span className='hidden md:block text-secondary text-2xl font-bold ml-2'>
 								CreativePulse
 							</span>
 						</Link>
@@ -78,16 +78,16 @@ const NavBar = () => {
 								<Link
 									href='/'
 									className={`${
-										pathname === "/" ? "bg-black" : ""
-									} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+										pathname === "/" ? "bg-primary" : ""
+									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
 								>
 									Home
 								</Link>
 								<Link
 									href='/products'
 									className={`${
-										pathname === "/products" ? "bg-black" : ""
-									} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+										pathname === "/products" ? "bg-primary" : ""
+									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
 								>
 									Products
 								</Link>
@@ -95,8 +95,8 @@ const NavBar = () => {
 								<Link
 									href='/products/add'
 									className={`${
-										pathname === "/products/add" ? "bg-black" : ""
-									} text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
+										pathname === "/products/add" ? "bg-primary" : ""
+									} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
 								>
 									Add Product
 								</Link>
@@ -115,9 +115,9 @@ const NavBar = () => {
 								<button
 									// onClick={() => signIn(provider.id)}
 									// key={index}
-									className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+									className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
 								>
-									{/* <FaGoogle className='text-white mr-2' /> */}
+									{/* <FaGoogle className='text-secondary mr-2' /> */}
 									<span>Login or Register</span>
 								</button>
 								// ))
@@ -132,7 +132,7 @@ const NavBar = () => {
 						<Link href='/messages' className='relative group'>
 							<button
 								type='button'
-								className='relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+								className='relative rounded-full bg-faded p-1 text-faded hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
 							>
 								<span className='absolute -inset-1.5'></span>
 								<span className='sr-only'>View notifications</span>
@@ -158,7 +158,7 @@ const NavBar = () => {
 							<div>
 								<button
 									type='button'
-									className='relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800'
+									className='relative flex rounded-full bg-faded text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
 									id='user-menu-button'
 									aria-expanded={isProfileMenuOpen}
 									aria-haspopup='true'
@@ -180,7 +180,7 @@ const NavBar = () => {
 							{isProfileMenuOpen && (
 								<div
 									id='user-menu'
-									className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'
+									className='absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-secondary py-1 shadow-lg ring-1 ring-primary ring-opacity-5 focus:outline-none'
 									role='menu'
 									aria-orientation='vertical'
 									aria-labelledby='user-menu-button'
@@ -188,7 +188,7 @@ const NavBar = () => {
 								>
 									<Link
 										href='/profile'
-										className='block px-4 py-2 text-sm text-gray-700'
+										className='block px-4 py-2 text-sm text-faded'
 										role='menuitem'
 										tabIndex={-1}
 										id='user-menu-item-0'
@@ -200,7 +200,7 @@ const NavBar = () => {
 									</Link>
 									<Link
 										href='/properties/saved'
-										className='block px-4 py-2 text-sm text-gray-700'
+										className='block px-4 py-2 text-sm text-faded'
 										role='menuitem'
 										tabIndex={-1}
 										id='user-menu-item-2'
@@ -215,7 +215,7 @@ const NavBar = () => {
 											setIsProfileMenuOpen(false)
 											// signOut()
 										}}
-										className='block px-4 py-2 text-sm text-gray-700'
+										className='block px-4 py-2 text-sm text-faded'
 										role='menuitem'
 										tabIndex={-1}
 										id='user-menu-item-2'
@@ -237,16 +237,16 @@ const NavBar = () => {
 						<Link
 							href='/'
 							className={`${
-								pathname === "/" ? "bg-black" : ""
-							} text-white block rounded-md px-3 py-2 text-base font-medium`}
+								pathname === "/" ? "bg-primary" : ""
+							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Home
 						</Link>
 						<Link
 							href='/properties'
 							className={`${
-								pathname === "/properties" ? "bg-black" : ""
-							} text-white block rounded-md px-3 py-2 text-base font-medium`}
+								pathname === "/properties" ? "bg-primary" : ""
+							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Properties
 						</Link>
@@ -254,8 +254,8 @@ const NavBar = () => {
 						<Link
 							href='/properties/add'
 							className={`${
-								pathname === "/properties/add" ? "bg-black" : ""
-							} text-white block rounded-md px-3 py-2 text-base font-medium`}
+								pathname === "/properties/add" ? "bg-primary" : ""
+							} text-secondary block rounded-md px-3 py-2 text-base font-medium`}
 						>
 							Add Property
 						</Link>
@@ -268,7 +268,7 @@ const NavBar = () => {
 									<button
 										// onClick={() => signIn(provider.id)}
 										key={index}
-										className='flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2'
+										className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
 									>
 										<span>Login or Register</span>
 									</button>
