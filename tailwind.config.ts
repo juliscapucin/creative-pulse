@@ -10,7 +10,8 @@ const config: Config = {
 		colors: {
 			primary: "rgb(var(--color-primary) / <alpha-value>)",
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",
-			faded: "rgba(var(--color-secondary-rgb), 0.3)",
+			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
+			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
 		fontSize: {
 			displayLarge: "147px",

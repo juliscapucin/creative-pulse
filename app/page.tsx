@@ -1,3 +1,10 @@
+import { Hero, InfoBoxes } from "@/components"
+
 export default function Page() {
-	return <div>Home page</div>
+	return (
+		<div>
+			<Hero />
+			<InfoBoxes />
+		</div>
+	)
 }

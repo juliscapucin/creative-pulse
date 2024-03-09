@@ -37,7 +37,7 @@ const NavBar = () => {
 	// }, [])
 
 	return (
-		<nav className='bg-faded border-b border-faded'>
+		<nav className='bg-faded-30 border-b border-faded-70'>
 			<div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
 				<div className='relative flex h-20 items-center justify-between'>
 					{/* <!-- Mobile menu button--> */}
@@ -88,7 +88,7 @@ const NavBar = () => {
 										href={link.href}
 										className={`${
 											pathname === link.href ? "bg-primary" : ""
-										} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+										} text-secondary hover:bg-faded-30 hover:text-secondary rounded-md px-3 py-2`}
 									>
 										{link.label}
 									</Link>
@@ -98,7 +98,7 @@ const NavBar = () => {
 										href='/products/add'
 										className={`${
 											pathname === "/products/add" ? "bg-primary" : ""
-										} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+										} text-secondary hover:bg-faded-30 hover:text-secondary rounded-md px-3 py-2`}
 									>
 										Add Product
 									</Link>
@@ -117,7 +117,7 @@ const NavBar = () => {
 									<button
 										// onClick={() => signIn(provider.id)}
 										// key={index}
-										className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
+										className='flex items-center text-secondary bg-faded-30 hover:bg-faded-70 hover:text-secondary rounded-md px-3 py-2'
 									>
 										<FaGoogle className='text-secondary mr-2' />
 										<span>Login or Register</span>
@@ -133,7 +133,7 @@ const NavBar = () => {
 							<Link href='/messages' className='relative group'>
 								<button
 									type='button'
-									className='relative rounded-full bg-faded p-1 text-faded hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
+									className='relative rounded-full bg-faded-30 p-1 text-faded-70 hover:text-secondary focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded-30'
 								>
 									<span className='absolute -inset-1.5'></span>
 									<span className='sr-only'>View notifications</span>
@@ -159,7 +159,7 @@ const NavBar = () => {
 								<div>
 									<button
 										type='button'
-										className='relative flex rounded-full bg-faded text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded'
+										className='relative flex rounded-full bg-faded-30 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 focus:ring-offset-faded-70'
 										id='user-menu-button'
 										aria-expanded={isProfileMenuOpen}
 										aria-haspopup='true'
@@ -241,7 +241,7 @@ const NavBar = () => {
 								href={link.href}
 								className={`${
 									pathname === link.href ? "bg-primary" : ""
-								} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+								} text-secondary hover:bg-faded-30 hover:text-secondary rounded-md px-3 py-2`}
 							>
 								{link.label}
 							</Link>
@@ -251,7 +251,7 @@ const NavBar = () => {
 								href='/products/add'
 								className={`${
 									pathname === "/products/add" ? "bg-primary" : ""
-								} text-secondary hover:bg-faded hover:text-secondary rounded-md px-3 py-2`}
+								} text-secondary hover:bg-faded-30 hover:text-secondary rounded-md px-3 py-2`}
 							>
 								Add Product
 							</Link>
@@ -262,7 +262,7 @@ const NavBar = () => {
 							<button
 								// onClick={() => signIn(provider.id)}
 								// key={index}
-								className='flex items-center text-secondary bg-faded hover:bg-faded hover:text-secondary rounded-md px-3 py-2'
+								className='flex items-center text-secondary bg-faded-30 hover:bg-faded-70 hover:text-secondary rounded-md px-3 py-2'
 							>
 								<FaGoogle className='text-secondary mr-2' />
 								<span>Login or Register</span>
