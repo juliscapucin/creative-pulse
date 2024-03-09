@@ -2,7 +2,7 @@ export type Product = {
 	_id: string
 	name: string
 	type: string
-	beds: number
+	interactions: number
 	square_feet: number
 	rates: {
 		monthly?: number

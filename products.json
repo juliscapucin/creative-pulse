@@ -11,7 +11,7 @@
       "state": "MA",
       "zipcode": "02108"
     },
-    "beds": 2,
+    "interactions": 2,
     "square_feet": 1500,
     "services": [
       "Wifi",
@@ -55,7 +55,7 @@
       "state": "NY",
       "zipcode": "10001"
     },
-    "beds": 1,
+    "interactions": 1,
     "square_feet": 1800,
     "services": [
       "Wifi",
@@ -98,7 +98,7 @@
       "state": "CA",
       "zipcode": "90001"
     },
-    "beds": 3,
+    "interactions": 3,
     "square_feet": 2200,
     "services": [
       "Wifi",
@@ -143,7 +143,7 @@
       "state": "TX",
       "zipcode": "78701"
     },
-    "beds": 1,
+    "interactions": 1,
     "square_feet": 900,
     "services": [
       "Fireplace",
@@ -176,7 +176,7 @@
       "state": "IL",
       "zipcode": "60601"
     },
-    "beds": 1,
+    "interactions": 1,
     "square_feet": 900,
     "services": [
       "High-Speed Internet",
@@ -211,7 +211,7 @@
       "state": "FL",
       "zipcode": "33101"
     },
-    "beds": 4,
+    "interactions": 4,
     "square_feet": 2800,
     "services": [
       "Beach Access",
@@ -246,7 +246,7 @@
       "state": "CO",
       "zipcode": "80201"
     },
-    "beds": 2,
+    "interactions": 2,
     "square_feet": 1100,
     "services": [
       "Fireplace",
@@ -280,7 +280,7 @@
       "state": "CO",
       "zipcode": "81611"
     },
-    "beds": 3,
+    "interactions": 3,
     "square_feet": 1800,
     "services": [
       "Ski Equipment Storage",
@@ -314,7 +314,7 @@
       "state": "CO",
       "zipcode": "80301"
     },
-    "beds": 4,
+    "interactions": 4,
     "square_feet": 2400,
     "services": [
       "Mountain View",
@@ -349,7 +349,7 @@
       "state": "PA",
       "zipcode": "19101"
     },
-    "beds": 2,
+    "interactions": 2,
     "square_feet": 1200,
     "services": [
       "High-Speed Internet",

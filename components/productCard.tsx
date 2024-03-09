@@ -1,11 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 import {
-	FaBed,
-	FaBath,
 	FaRulerCombined,
 	FaMoneyBill,
 	FaMapMarker,
+	FaArrowCircleDown,
 } from "react-icons/fa"
 
 import { Product } from "@/types"
@@ -23,12 +22,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
 		} else if (rates.weekly) {
 			return `${rates.weekly.toLocaleString()}/wk`
 		} else if (rates.daily) {
-			return `${rates.daily.toLocaleString()}/night`
+			return `${rates.daily.toLocaleString()}/day`
 		}
 	}
 
 	return (
-		<div className='rounded-xl shadow-md relative w-full h-full'>
+		<div className='rounded-xl shadow-md relative w-full h-full bg-faded-10'>
 			<Image
 				src={"/images/properties" + product.images[0]}
 				alt=''
@@ -48,8 +47,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
 				<div className='flex justify-center gap-4 text-secondary mb-4'>
 					<p>
-						<FaBed className='inline mr-2' /> {product.beds}{" "}
-						<span className='md:hidden lg:inline'>Beds</span>
+						<FaArrowCircleDown className='inline mr-2' /> {product.interactions}{" "}
+						<span className='md:hidden lg:inline'>Interactions</span>
 					</p>
 					<p>
 						<FaRulerCombined className='inline mr-2' />

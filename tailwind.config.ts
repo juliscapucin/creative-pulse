@@ -10,6 +10,7 @@ const config: Config = {
 		colors: {
 			primary: "rgb(var(--color-primary) / <alpha-value>)",
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+			"faded-10": "rgba(var(--color-secondary-rgb), 0.1)",
 			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
 			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
