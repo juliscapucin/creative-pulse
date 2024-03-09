@@ -1,4 +1,4 @@
-import { PropertySearchForm } from "@/components"
+import { ProductSearchForm } from "@/components"
 
 const Hero = () => {
 	return (
@@ -12,7 +12,7 @@ const Hero = () => {
 						Discover the perfect property that suits your needs.
 					</p>
 				</div>
-				<PropertySearchForm />
+				<ProductSearchForm />
 			</div>
 		</section>
 	)

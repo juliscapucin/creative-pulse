@@ -3,7 +3,9 @@ import Hero from "./hero"
 import InfoBox from "./infoBox"
 import InfoBoxes from "./infoBoxes"
 import NavBar from "./navBar"
-import PropertySearchForm from "./propertySearchForm"
+import ProductCard from "./productCard"
+import Products from "./products"
+import ProductSearchForm from "./productSearchForm"
 import RootLayout from "./rootLayout"
 
 export {
@@ -12,6 +14,8 @@ export {
 	InfoBox,
 	InfoBoxes,
 	NavBar,
-	PropertySearchForm,
+	ProductCard,
+	Products,
+	ProductSearchForm,
 	RootLayout,
 }
