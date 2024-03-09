@@ -8,11 +8,10 @@ const config: Config = {
 	],
 	theme: {
 		colors: {
-			colorBlack: "rgb(var(--color-black) / <alpha-value>)",
-			colorWhite: "rgb(var(--color-white) / <alpha-value>)",
 			primary: "rgb(var(--color-primary) / <alpha-value>)",
 			secondary: "rgb(var(--color-secondary) / <alpha-value>)",
-			colorFaded: "rgba(var(--color-secondary-rgb), 0.3)",
+			"faded-30": "rgba(var(--color-secondary-rgb), 0.3)",
+			"faded-70": "rgba(var(--color-secondary-rgb), 0.7)",
 		},
 		fontSize: {
 			displayLarge: "147px",

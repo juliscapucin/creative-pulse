@@ -3,7 +3,8 @@
 import { useThemeStorage } from "@/hooks"
 
 export default function RootLayout(props: { children: React.ReactNode }) {
-	const { theme } = useThemeStorage()
+	// const { theme } = useThemeStorage()
+	const theme = "dark"
 
 	return (
 		<html

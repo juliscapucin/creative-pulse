@@ -104,7 +104,7 @@ a {
 }
 
 a:hover {
-   color: var(--color-faded);
+   color: rgba(var(--color-secondary-rgb), 0.2);
 }
 
 h1,
