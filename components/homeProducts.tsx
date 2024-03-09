@@ -37,7 +37,7 @@ const HomeProducts = async () => {
 			<section className='m-auto max-w-lg my-10 px-6'>
 				<Link
 					href='/products'
-					className='block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700'
+					className='block bg-faded-70 text-primary text-center py-4 px-6 rounded-xl hover:bg-faded-10 hover:text-secondary'
 				>
 					View All Products
 				</Link>
